@@ -14,6 +14,10 @@
 		9246CAB82605285700F73610 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9246CAB72605285700F73610 /* Preview Assets.xcassets */; };
 		9246CABB2605285700F73610 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9246CAB92605285700F73610 /* LaunchScreen.storyboard */; };
 		9246CAC726052AD100F73610 /* BottomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAC626052AD100F73610 /* BottomTabBar.swift */; };
+		9246CAC92605470200F73610 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAC82605470200F73610 /* HomeView.swift */; };
+		9246CACB2605470D00F73610 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CACA2605470D00F73610 /* SearchView.swift */; };
+		9246CACD2605471A00F73610 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CACC2605471A00F73610 /* BookmarkView.swift */; };
+		9246CACF260564C100F73610 /* JobItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CACE260564C100F73610 /* JobItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		9246CABA2605285700F73610 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9246CABC2605285700F73610 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9246CAC626052AD100F73610 /* BottomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabBar.swift; sourceTree = "<group>"; };
+		9246CAC82605470200F73610 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9246CACA2605470D00F73610 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		9246CACC2605471A00F73610 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		9246CACE260564C100F73610 /* JobItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				9246CAB22605285500F73610 /* TabNavView.swift */,
+				9246CAC82605470200F73610 /* HomeView.swift */,
+				9246CACA2605470D00F73610 /* SearchView.swift */,
+				9246CACC2605471A00F73610 /* BookmarkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -90,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				9246CAC626052AD100F73610 /* BottomTabBar.swift */,
+				9246CACE260564C100F73610 /* JobItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -166,8 +178,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9246CAAF2605285500F73610 /* AppDelegate.swift in Sources */,
+				9246CACD2605471A00F73610 /* BookmarkView.swift in Sources */,
+				9246CACF260564C100F73610 /* JobItem.swift in Sources */,
 				9246CAB12605285500F73610 /* SceneDelegate.swift in Sources */,
 				9246CAC726052AD100F73610 /* BottomTabBar.swift in Sources */,
+				9246CAC92605470200F73610 /* HomeView.swift in Sources */,
+				9246CACB2605470D00F73610 /* SearchView.swift in Sources */,
 				9246CAB32605285500F73610 /* TabNavView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

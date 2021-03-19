@@ -16,8 +16,8 @@ struct BottomTabBar: View {
     
     var body: some View {
         
-        VStack {
-            Spacer()
+        
+            
             HStack {
                 Spacer()
                 Image(systemName: selection==0 ? "house.fill" : "house")
@@ -58,7 +58,6 @@ struct BottomTabBar: View {
                 .animation(.default)
                 .background(Color.white)
             //hstack
-        }//vstack
     }
 }
 
