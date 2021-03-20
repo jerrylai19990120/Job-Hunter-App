@@ -23,59 +23,7 @@ struct HomeView: View {
             
             //Header Stack
             VStack {
-                VStack{
-                    HStack {
-                        TextField("Search Job", text: self.$query)
-                        
-                        Image(systemName: "magnifyingglass")
-                            .resizable()
-                            .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
-                    }.padding()
-                    .background(Color.white)
-                    .cornerRadius(16)
-                    
-                    HStack {
-                        HStack {
-                            Image(systemName: "line.horizontal.3.decrease.circle.fill")
-                                .resizable()
-                                .frame(width: gr.size.width*0.04, height: gr.size.width*0.04)
-                                .foregroundColor(.white)
-                                
-                            Text("Filters")
-                                .foregroundColor(.white)
-                                .font(.system(size: gr.size.width*0.04, weight: .regular, design: .rounded))
-                        }.padding()
-                        .background(Color(red: 148/255, green: 101/255, blue: 251/255))
-                        .cornerRadius(18)
-                        
-                        Spacer()
-                        HStack {
-                            Image(systemName: "mappin.and.ellipse")
-                                .resizable()
-                                .frame(width: gr.size.width*0.04, height: gr.size.width*0.04)
-                                .foregroundColor(.white)
-                            Text("Location")
-                                .foregroundColor(.white)
-                                .font(.system(size: gr.size.width*0.04, weight: .regular, design: .rounded))
-                        }.padding()
-                        .background(Color(red: 148/255, green: 101/255, blue: 251/255))
-                        .cornerRadius(18)
-                        
-                        Spacer()
-                        HStack {
-                            Image(systemName: "square.grid.2x2.fill")
-                                .resizable()
-                                .frame(width: gr.size.width*0.04, height: gr.size.width*0.04)
-                                .foregroundColor(.white)
-                            Text("Category")
-                                .foregroundColor(.white)
-                                .font(.system(size: gr.size.width*0.04, weight: .regular, design: .rounded))
-                        }.padding()
-                        .background(Color(red: 148/255, green: 101/255, blue: 251/255))
-                        .cornerRadius(18)
-                    }
-                    
-                }.padding()
+                SearchHeader(gr: gr, query: self.$query)
                 
                 //Main stack
                 VStack {
@@ -84,6 +32,11 @@ struct HomeView: View {
                             .font(.system(size: gr.size.width*0.06, weight: .medium, design: .default))
                         Spacer()
                     }.padding()
+                    
+                    JobItem(gr: gr)
+                        .padding(.bottom)
+                    JobItem(gr: gr)
+                        .padding(.bottom)
                     
                 }
                 
@@ -100,5 +53,68 @@ struct HomeView_Previews: PreviewProvider {
         GeometryReader { gr in
             HomeView(gr: gr)
         }
+    }
+}
+
+struct SearchHeader: View {
+    
+    var gr: GeometryProxy
+    
+    @Binding var query: String
+    
+    var body: some View {
+        VStack{
+            HStack {
+                TextField("Search Job", text: self.$query)
+                
+                Image(systemName: "magnifyingglass")
+                    .resizable()
+                    .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
+            }.padding()
+                .background(Color.white)
+                .cornerRadius(16)
+            
+            HStack {
+                HStack {
+                    Image(systemName: "line.horizontal.3.decrease.circle.fill")
+                        .resizable()
+                        .frame(width: gr.size.width*0.04, height: gr.size.width*0.04)
+                        .foregroundColor(.white)
+                    
+                    Text("Filters")
+                        .foregroundColor(.white)
+                        .font(.system(size: gr.size.width*0.04, weight: .regular, design: .rounded))
+                }.padding()
+                    .background(Color(red: 148/255, green: 101/255, blue: 251/255))
+                    .cornerRadius(18)
+                
+                Spacer()
+                HStack {
+                    Image(systemName: "mappin.and.ellipse")
+                        .resizable()
+                        .frame(width: gr.size.width*0.04, height: gr.size.width*0.04)
+                        .foregroundColor(.white)
+                    Text("Location")
+                        .foregroundColor(.white)
+                        .font(.system(size: gr.size.width*0.04, weight: .regular, design: .rounded))
+                }.padding()
+                    .background(Color(red: 148/255, green: 101/255, blue: 251/255))
+                    .cornerRadius(18)
+                
+                Spacer()
+                HStack {
+                    Image(systemName: "square.grid.2x2.fill")
+                        .resizable()
+                        .frame(width: gr.size.width*0.04, height: gr.size.width*0.04)
+                        .foregroundColor(.white)
+                    Text("Category")
+                        .foregroundColor(.white)
+                        .font(.system(size: gr.size.width*0.04, weight: .regular, design: .rounded))
+                }.padding()
+                    .background(Color(red: 148/255, green: 101/255, blue: 251/255))
+                    .cornerRadius(18)
+            }
+            
+        }.padding()
     }
 }
