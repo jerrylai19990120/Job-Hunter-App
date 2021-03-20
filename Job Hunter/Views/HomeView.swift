@@ -24,7 +24,7 @@ struct HomeView: View {
             //Header Stack
             VStack(spacing: 0) {
                 SearchHeader(gr: gr, query: self.$query)
-                    .frame(height: gr.size.height*0.24)
+                    .frame(height: gr.size.height*0.22)
                     
                 
                 //Main stack

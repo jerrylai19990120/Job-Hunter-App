@@ -20,37 +20,45 @@ struct BottomTabBar: View {
             
             HStack {
                 Spacer()
-                Image(systemName: selection==0 ? "house.fill" : "house")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
-                    .foregroundColor(selection==0 ? Color("darkGrey") : Color("lightPurple"))
-                    .font(.system(size: gr.size.width*0.06, weight: .bold, design: .rounded))
-                    .onTapGesture {
-                        self.selection = 0
-                }
+                Button(action: {
+                    self.selection = 0
+                }) {
+                    Image(systemName: selection==0 ? "house.fill" : "house")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
+                        .foregroundColor(selection==0 ? Color("darkGrey") : Color("lightPurple"))
+                        .font(.system(size: gr.size.width*0.06, weight: .bold, design: .rounded))
+                        
+                }.frame(width: gr.size.width*0.33, height: gr.size.height*0.1)
                 
                 
-                Spacer()
-                Image(systemName: "magnifyingglass")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
-                    .foregroundColor(selection==1 ? Color("darkGrey") : Color("lightPurple"))
-                    .font(.system(size: gr.size.width*0.06, weight: .bold, design: .rounded))
-                    .onTapGesture {
-                        self.selection = 1
-                }
-                Spacer()
-                Image(systemName: selection==2 ? "bookmark.fill" : "bookmark")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
-                    .foregroundColor(selection==2 ? Color("darkGrey") : Color("lightPurple"))
-                    .font(.system(size: gr.size.width*0.06, weight: .bold, design: .rounded))
-                    .onTapGesture {
-                        self.selection = 2
-                }
+                Button(action: {
+                    self.selection = 1
+                }) {
+                    Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
+                        .foregroundColor(selection==1 ? Color("darkGrey") : Color("lightPurple"))
+                        .font(.system(size: gr.size.width*0.06, weight: .bold, design: .rounded))
+                }.frame(width: gr.size.width*0.33, height: gr.size.height*0.1)
+                
+                
+                Button(action: {
+                    self.selection = 2
+                }) {
+                    Image(systemName: selection==2 ? "bookmark.fill" : "bookmark")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
+                        .foregroundColor(selection==2 ? Color("darkGrey") : Color("lightPurple"))
+                        .font(.system(size: gr.size.width*0.06, weight: .bold, design: .rounded))
+                }.frame(width: gr.size.width*0.33, height: gr.size.height*0.1)
+                    
+                
+                
+                    
                 
                 Spacer()
                 
