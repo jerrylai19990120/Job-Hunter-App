@@ -19,30 +19,38 @@ struct HomeView: View {
             LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)
             Rectangle()
                 .fill(Color(red: 244/255 , green: 245/255, blue: 249/255))
-                .offset(y: gr.size.height*0.22)
+                .offset(y: gr.size.height*0.24)
             
             //Header Stack
-            VStack {
+            VStack(spacing: 0) {
                 SearchHeader(gr: gr, query: self.$query)
+                    .frame(height: gr.size.height*0.24)
+                    
                 
                 //Main stack
-                VStack {
-                    HStack {
-                        Text("Featured Jobs")
-                            .font(.system(size: gr.size.width*0.06, weight: .medium, design: .default))
-                        Spacer()
-                    }.padding()
-                    
-                    JobItem(gr: gr)
-                        .padding(.bottom)
-                    JobItem(gr: gr)
-                        .padding(.bottom)
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack {
+                        HStack {
+                            Text("Featured Jobs")
+                                .font(.system(size: gr.size.width*0.06, weight: .medium, design: .default))
+                            Spacer()
+                        }.padding([.top, .leading])
+                        
+                        JobItem(gr: gr)
+                            .padding(.bottom)
+                        JobItem(gr: gr)
+                            .padding(.bottom)
+                        
+                        Divider().padding()
+                        
+                        HomeViewBanner(gr: gr)
+                        
+                    }.padding(.bottom, gr.size.height*0.12)
                     
                 }
                 
                 
-                
-            }
+            }.padding(.top)// v stack
                 
         }.edgesIgnoringSafeArea(.top)
     }

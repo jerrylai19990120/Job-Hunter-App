@@ -21,6 +21,7 @@ struct TabNavView: View {
                     
                     if self.selection == 0 {
                         HomeView(gr: gr)
+                            
                     }
                     
                     if self.selection == 1 {
@@ -34,10 +35,10 @@ struct TabNavView: View {
                     VStack {
                         Spacer()
                         BottomTabBar(gr: gr, selection: self.$selection)
-                    }
+                    }.edgesIgnoringSafeArea(.bottom)
                     
                     
-                }.edgesIgnoringSafeArea(.top)
+                }//.edgesIgnoringSafeArea(.top)
             }//nav view
         }//geo reader
         
