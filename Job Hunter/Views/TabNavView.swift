@@ -39,7 +39,7 @@ struct TabNavView: View {
                     
                     
                 }//.edgesIgnoringSafeArea(.top)
-            }//nav view
+            }.accentColor(.white)//nav view
         }//geo reader
         
     }

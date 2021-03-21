@@ -19,6 +19,7 @@
 		9246CACD2605471A00F73610 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CACC2605471A00F73610 /* BookmarkView.swift */; };
 		9246CACF260564C100F73610 /* JobItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CACE260564C100F73610 /* JobItem.swift */; };
 		9246CAD126063E0300F73610 /* HomeViewBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD026063E0300F73610 /* HomeViewBanner.swift */; };
+		9246CAD32607A7AA00F73610 /* JobDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD22607A7AA00F73610 /* JobDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9246CACC2605471A00F73610 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		9246CACE260564C100F73610 /* JobItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobItem.swift; sourceTree = "<group>"; };
 		9246CAD026063E0300F73610 /* HomeViewBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBanner.swift; sourceTree = "<group>"; };
+		9246CAD22607A7AA00F73610 /* JobDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				9246CAC82605470200F73610 /* HomeView.swift */,
 				9246CACA2605470D00F73610 /* SearchView.swift */,
 				9246CACC2605471A00F73610 /* BookmarkView.swift */,
+				9246CAD22607A7AA00F73610 /* JobDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				9246CAAF2605285500F73610 /* AppDelegate.swift in Sources */,
 				9246CACD2605471A00F73610 /* BookmarkView.swift in Sources */,
 				9246CACF260564C100F73610 /* JobItem.swift in Sources */,
+				9246CAD32607A7AA00F73610 /* JobDetailView.swift in Sources */,
 				9246CAB12605285500F73610 /* SceneDelegate.swift in Sources */,
 				9246CAC726052AD100F73610 /* BottomTabBar.swift in Sources */,
 				9246CAC92605470200F73610 /* HomeView.swift in Sources */,
@@ -336,7 +340,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jerry-lai.Job-Hunter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -356,7 +360,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jerry-lai.Job-Hunter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
