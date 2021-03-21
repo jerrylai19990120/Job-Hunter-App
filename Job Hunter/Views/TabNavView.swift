@@ -38,8 +38,9 @@ struct TabNavView: View {
                     }.edgesIgnoringSafeArea(.bottom)
                     
                     
-                }//.edgesIgnoringSafeArea(.top)
-            }.accentColor(.white)//nav view
+                }.navigationBarTitle("")//.edgesIgnoringSafeArea(.top)
+            }.accentColor(.white)
+            //nav view
         }//geo reader
         
     }

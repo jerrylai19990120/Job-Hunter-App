@@ -15,6 +15,7 @@ struct HomeView: View {
     @State var query = ""
     
     var body: some View {
+        
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)
             Rectangle()
@@ -36,8 +37,11 @@ struct HomeView: View {
                             Spacer()
                         }.padding([.top, .leading])
                         
-                        JobItem(gr: gr)
-                            .padding(.bottom)
+                        NavigationLink(destination: JobDetailView(gr: gr).navigationBarItems(trailing: ShareButton(gr: gr))) {
+                            JobItem(gr: gr)
+                                .padding(.bottom)
+                        }.accentColor(.black)
+                        
                         JobItem(gr: gr)
                             .padding(.bottom)
                         
@@ -124,5 +128,19 @@ struct SearchHeader: View {
             }
             
         }.padding()
+    }
+}
+
+struct ShareButton: View {
+    
+    var gr: GeometryProxy
+    
+    var body: some View {
+        Image(systemName: "square.and.arrow.up")
+            .resizable()
+            .frame(width: gr.size.width*0.05, height: gr.size.width*0.06)
+            .foregroundColor(.white)
+            .font(Font.title.weight(.bold))
+            
     }
 }
