@@ -20,6 +20,9 @@
 		9246CACF260564C100F73610 /* JobItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CACE260564C100F73610 /* JobItem.swift */; };
 		9246CAD126063E0300F73610 /* HomeViewBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD026063E0300F73610 /* HomeViewBanner.swift */; };
 		9246CAD32607A7AA00F73610 /* JobDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD22607A7AA00F73610 /* JobDetailView.swift */; };
+		9246CAD52607ACEE00F73610 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD42607ACEE00F73610 /* DescriptionView.swift */; };
+		9246CAD72607ACFC00F73610 /* CompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD62607ACFC00F73610 /* CompanyView.swift */; };
+		9246CAD92607AD1B00F73610 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD82607AD1B00F73610 /* ReviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		9246CACE260564C100F73610 /* JobItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobItem.swift; sourceTree = "<group>"; };
 		9246CAD026063E0300F73610 /* HomeViewBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBanner.swift; sourceTree = "<group>"; };
 		9246CAD22607A7AA00F73610 /* JobDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailView.swift; sourceTree = "<group>"; };
+		9246CAD42607ACEE00F73610 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		9246CAD62607ACFC00F73610 /* CompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyView.swift; sourceTree = "<group>"; };
+		9246CAD82607AD1B00F73610 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,9 @@
 				9246CAC626052AD100F73610 /* BottomTabBar.swift */,
 				9246CACE260564C100F73610 /* JobItem.swift */,
 				9246CAD026063E0300F73610 /* HomeViewBanner.swift */,
+				9246CAD42607ACEE00F73610 /* DescriptionView.swift */,
+				9246CAD62607ACFC00F73610 /* CompanyView.swift */,
+				9246CAD82607AD1B00F73610 /* ReviewView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -185,11 +194,14 @@
 			files = (
 				9246CAAF2605285500F73610 /* AppDelegate.swift in Sources */,
 				9246CACD2605471A00F73610 /* BookmarkView.swift in Sources */,
+				9246CAD72607ACFC00F73610 /* CompanyView.swift in Sources */,
 				9246CACF260564C100F73610 /* JobItem.swift in Sources */,
 				9246CAD32607A7AA00F73610 /* JobDetailView.swift in Sources */,
+				9246CAD92607AD1B00F73610 /* ReviewView.swift in Sources */,
 				9246CAB12605285500F73610 /* SceneDelegate.swift in Sources */,
 				9246CAC726052AD100F73610 /* BottomTabBar.swift in Sources */,
 				9246CAC92605470200F73610 /* HomeView.swift in Sources */,
+				9246CAD52607ACEE00F73610 /* DescriptionView.swift in Sources */,
 				9246CACB2605470D00F73610 /* SearchView.swift in Sources */,
 				9246CAD126063E0300F73610 /* HomeViewBanner.swift in Sources */,
 				9246CAB32605285500F73610 /* TabNavView.swift in Sources */,

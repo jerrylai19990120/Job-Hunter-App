@@ -39,18 +39,54 @@ struct JobDetailView: View {
                 Text("Description")
                     .foregroundColor(selection==0 ? .black : .gray)
                     .font(.system(size: gr.size.width*0.042, weight: .medium, design: .default))
-                    
+                    .padding()
+                    .onTapGesture {
+                        self.selection = 0
+                    }
+                
+                Divider().frame(height: gr.size.height*0.065)
                 
                 Text("Company")
                     .foregroundColor(selection==1 ? .black : .gray)
                     .font(.system(size: gr.size.width*0.042, weight: .medium, design: .default))
+                    .padding()
+                    .onTapGesture {
+                        self.selection = 1
+                    }
+                
+                Divider().frame(height: gr.size.height*0.065)
                 
                 Text("Reviews")
                     .foregroundColor(selection==2 ? .black : .gray)
                     .font(.system(size: gr.size.width*0.042, weight: .medium, design: .default))
+                    .padding()
+                    .onTapGesture {
+                        self.selection = 2
+                    }
                 
-            }.padding()
-            .frame(width: gr.size.width*0.9)
+            }.background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 3)
+            .animation(.default)
+            
+            VStack {
+                if selection == 0 {
+                    DescriptionView()
+                }
+                
+                if selection == 1 {
+                    CompanyView()
+                }
+                
+                if selection == 2 {
+                    ReviewView()
+                }
+                
+                Spacer()
+            }.padding(.top)
+            
+            
+            ApplyJobBar(gr: gr)
             
             
         }.padding()
@@ -63,5 +99,35 @@ struct JobDetailView_Previews: PreviewProvider {
         GeometryReader { gr in
             JobDetailView(gr: gr)
         }
+    }
+}
+
+struct ApplyJobBar: View {
+    
+    var gr: GeometryProxy
+    
+    var body: some View {
+        HStack(spacing: 8) {
+            
+            Image(systemName: "bookmark")
+                .resizable()
+                .frame(width: gr.size.width*0.05, height: gr.size.width*0.06)
+                .padding()
+                .background(Color(red: 228/255, green: 230/255, blue: 233/255))
+                .cornerRadius(10)
+            
+            HStack {
+                Spacer()
+                Text("Apply Now")
+                    .font(.system(size: gr.size.width*0.05, weight: .medium, design: .default))
+                    .foregroundColor(.white)
+                Spacer()
+            }.padding()
+                .background(Color("primaryPurple"))
+                .cornerRadius(10)
+            
+        }.padding()
+            .frame(width: gr.size.width)
+            .background(Color.white)
     }
 }
