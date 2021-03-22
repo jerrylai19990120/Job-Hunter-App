@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct ReviewView: View {
+    
+    var gr: GeometryProxy
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -16,6 +19,8 @@ struct ReviewView: View {
 
 struct ReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewView()
+        GeometryReader { gr in
+            ReviewView(gr: gr)
+        }
     }
 }

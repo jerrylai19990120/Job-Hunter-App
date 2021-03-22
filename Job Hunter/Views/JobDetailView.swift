@@ -93,11 +93,11 @@ struct JobDetailView: View {
                     }
                     
                     if selection == 1 {
-                        CompanyView()
+                        CompanyView(gr: gr)
                     }
                     
                     if selection == 2 {
-                        ReviewView()
+                        ReviewView(gr: gr)
                     }
                     
                     
