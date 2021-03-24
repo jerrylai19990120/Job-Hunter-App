@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct BookmarkView: View {
+    
+    var gr: GeometryProxy
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -16,6 +19,8 @@ struct BookmarkView: View {
 
 struct BookmarkView_Previews: PreviewProvider {
     static var previews: some View {
-        BookmarkView()
+        GeometryReader { gr in
+            BookmarkView(gr: gr)
+        }
     }
 }
