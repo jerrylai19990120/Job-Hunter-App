@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B38CCE46B897427E21EECBD /* Pods_Job_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784A7F30D50A365DF7DC5A23 /* Pods_Job_Hunter.framework */; };
 		9246CAAF2605285500F73610 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAAE2605285500F73610 /* AppDelegate.swift */; };
 		9246CAB12605285500F73610 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAB02605285500F73610 /* SceneDelegate.swift */; };
 		9246CAB32605285500F73610 /* TabNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAB22605285500F73610 /* TabNavView.swift */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		784A7F30D50A365DF7DC5A23 /* Pods_Job_Hunter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Job_Hunter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		817C5E1257986C36F04DFD1D /* Pods-Job Hunter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Job Hunter.debug.xcconfig"; path = "Target Support Files/Pods-Job Hunter/Pods-Job Hunter.debug.xcconfig"; sourceTree = "<group>"; };
 		9246CAAB2605285500F73610 /* Job Hunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Job Hunter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9246CAAE2605285500F73610 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9246CAB02605285500F73610 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		9246CAD42607ACEE00F73610 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		9246CAD62607ACFC00F73610 /* CompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyView.swift; sourceTree = "<group>"; };
 		9246CAD82607AD1B00F73610 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		C97606EA931CBBB7C152CA0A /* Pods-Job Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Job Hunter.release.xcconfig"; path = "Target Support Files/Pods-Job Hunter/Pods-Job Hunter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +55,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B38CCE46B897427E21EECBD /* Pods_Job_Hunter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69CAB32F19FAF73030CD6DA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				817C5E1257986C36F04DFD1D /* Pods-Job Hunter.debug.xcconfig */,
+				C97606EA931CBBB7C152CA0A /* Pods-Job Hunter.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9246CAA22605285500F73610 = {
 			isa = PBXGroup;
 			children = (
 				9246CAAD2605285500F73610 /* Job Hunter */,
 				9246CAAC2605285500F73610 /* Products */,
+				69CAB32F19FAF73030CD6DA9 /* Pods */,
+				FDAC7C7BD1ADD42F44D8B0D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +138,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		FDAC7C7BD1ADD42F44D8B0D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				784A7F30D50A365DF7DC5A23 /* Pods_Job_Hunter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9246CABF2605285700F73610 /* Build configuration list for PBXNativeTarget "Job Hunter" */;
 			buildPhases = (
+				1E8DBA5A07EB222F102B1822 /* [CP] Check Pods Manifest.lock */,
 				9246CAA72605285500F73610 /* Sources */,
 				9246CAA82605285500F73610 /* Frameworks */,
 				9246CAA92605285500F73610 /* Resources */,
+				E893E31216D2BD30BE89F638 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,6 +213,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E8DBA5A07EB222F102B1822 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Job Hunter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E893E31216D2BD30BE89F638 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Job Hunter/Pods-Job Hunter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Job Hunter/Pods-Job Hunter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Job Hunter/Pods-Job Hunter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9246CAA72605285500F73610 /* Sources */ = {
@@ -338,6 +407,7 @@
 		};
 		9246CAC02605285700F73610 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 817C5E1257986C36F04DFD1D /* Pods-Job Hunter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -359,6 +429,7 @@
 		};
 		9246CAC12605285700F73610 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C97606EA931CBBB7C152CA0A /* Pods-Job Hunter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

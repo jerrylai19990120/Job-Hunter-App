@@ -25,11 +25,11 @@ struct TabNavView: View {
                     }
                     
                     if self.selection == 1 {
-                        SearchView()
+                        SearchView(gr: gr)
                     }
                     
                     if self.selection == 2 {
-                        BookmarkView()
+                        BookmarkView(gr: gr)
                     }
                     
                     VStack {
