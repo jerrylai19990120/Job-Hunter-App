@@ -14,11 +14,34 @@ struct BookmarkView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Text("Bookmark")
-                Spacer()
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)
+                
+                HStack {
+                    Spacer()
+                    Text("Bookmark")
+                        .foregroundColor(.white)
+                        .font(.system(size: gr.size.width*0.06, weight: .regular, design: .rounded))
+                        .padding()
+                    Spacer()
+                }
+            }.edgesIgnoringSafeArea(.top)
+            .frame(height: gr.size.height*0.1)
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    JobItem(gr: gr, isBookMarked: true)
+                        .padding(.bottom)
+                    JobItem(gr: gr, isBookMarked: true)
+                        .padding(.bottom)
+                    JobItem(gr: gr, isBookMarked: true)
+                        .padding(.bottom)
+                    
+                }
             }
+            
+            
+            
             
             Spacer()
         }

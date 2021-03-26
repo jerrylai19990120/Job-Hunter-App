@@ -12,6 +12,8 @@ struct JobItem: View {
     
     var gr: GeometryProxy
     
+    @State var isBookMarked = false
+    
     var body: some View {
         HStack {
             VStack {
@@ -42,7 +44,7 @@ struct JobItem: View {
             Spacer()
             VStack {
                 //Spacer()
-                Image(systemName: "bookmark")
+                Image(systemName: isBookMarked ? "bookmark.fill" : "bookmark")
                     .foregroundColor(.gray)
                     .font(.system(size: gr.size.width*0.036, weight: .medium, design: .default))
                 
