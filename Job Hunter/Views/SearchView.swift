@@ -15,11 +15,20 @@ struct SearchView: View {
     @State var query = ""
     
     var body: some View {
-        VStack {
-            HStack {
-                TextField("Search", text: $query)
+        
+        ZStack{
+            LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)
+            Rectangle()
+                .fill(Color(red: 244/255 , green: 245/255, blue: 249/255))
+                .offset(y: gr.size.height*0.24)
+            
+            VStack {
+                HStack {
+                    TextField("Search", text: $query)
+                }
             }
         }
+        
     }
 }
 
