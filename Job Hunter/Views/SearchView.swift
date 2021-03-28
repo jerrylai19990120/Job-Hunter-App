@@ -17,15 +17,14 @@ struct SearchView: View {
     var body: some View {
         
         ZStack{
-            LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)
+            /*LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)*/
             Rectangle()
                 .fill(Color(red: 244/255 , green: 245/255, blue: 249/255))
-                .offset(y: gr.size.height*0.24)
+                .edgesIgnoringSafeArea([.top, .bottom])
+                
             
             VStack {
-                HStack {
-                    TextField("Search", text: $query)
-                }
+                SearchHeader(gr: gr, query: $query)
             }
         }
         

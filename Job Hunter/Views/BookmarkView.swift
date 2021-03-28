@@ -21,12 +21,12 @@ struct BookmarkView: View {
                     Spacer()
                     Text("Bookmark")
                         .foregroundColor(.white)
-                        .font(.system(size: gr.size.width*0.06, weight: .regular, design: .rounded))
+                        .font(.system(size: gr.size.width*0.06, weight: .semibold, design: .rounded))
                         .padding()
                     Spacer()
-                }
+                }.offset(y: gr.size.height*0.02)
             }.edgesIgnoringSafeArea(.top)
-            .frame(height: gr.size.height*0.1)
+            .frame(height: gr.size.height*0.06)
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
@@ -37,8 +37,8 @@ struct BookmarkView: View {
                     JobItem(gr: gr, isBookMarked: true)
                         .padding(.bottom)
                     
-                }
-            }
+                }.padding()
+            }.frame(width: gr.size.width)
             
             
             
