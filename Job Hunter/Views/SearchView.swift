@@ -14,6 +14,8 @@ struct SearchView: View {
     
     @State var query = ""
     
+    @Binding var popup: Bool
+    
     var body: some View {
         
         ZStack{
@@ -25,8 +27,10 @@ struct SearchView: View {
             
             VStack {
                 SearchHeader(gr: gr, query: $query)
+                    .offset(y: popup ? 0 : gr.size.height/3)
+                Spacer()
             }
-        }
+        }.animation(.default)
         
     }
 }
@@ -34,7 +38,7 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { gr in
-            SearchView(gr: gr)
+            SearchView(gr: gr, popup: .constant(true))
         }
     }
 }

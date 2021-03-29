@@ -14,6 +14,8 @@ struct BottomTabBar: View {
     
     @Binding var selection: Int
     
+    @Binding var popup: Bool
+    
     var body: some View {
         
         
@@ -22,6 +24,7 @@ struct BottomTabBar: View {
                 Spacer()
                 Button(action: {
                     self.selection = 0
+                    self.popup = false
                 }) {
                     Image(systemName: selection==0 ? "house.fill" : "house")
                         .resizable()
@@ -35,6 +38,7 @@ struct BottomTabBar: View {
                 
                 Button(action: {
                     self.selection = 1
+                    self.popup = true
                 }) {
                     Image(systemName: "magnifyingglass")
                         .resizable()
@@ -47,6 +51,7 @@ struct BottomTabBar: View {
                 
                 Button(action: {
                     self.selection = 2
+                    self.popup = false
                 }) {
                     Image(systemName: selection==2 ? "bookmark.fill" : "bookmark")
                         .resizable()
@@ -72,7 +77,7 @@ struct BottomTabBar: View {
 struct BottomTabBar_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { gr in
-            BottomTabBar(gr: gr, selection: .constant(0))
+            BottomTabBar(gr: gr, selection: .constant(0), popup: .constant(false))
         }
     }
 }
