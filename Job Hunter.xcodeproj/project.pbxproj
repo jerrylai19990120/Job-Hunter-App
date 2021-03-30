@@ -24,6 +24,7 @@
 		9246CAD52607ACEE00F73610 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD42607ACEE00F73610 /* DescriptionView.swift */; };
 		9246CAD72607ACFC00F73610 /* CompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD62607ACFC00F73610 /* CompanyView.swift */; };
 		9246CAD92607AD1B00F73610 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD82607AD1B00F73610 /* ReviewView.swift */; };
+		92BF5401261372F80055051E /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF5400261372F80055051E /* ResultsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		9246CAD42607ACEE00F73610 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		9246CAD62607ACFC00F73610 /* CompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyView.swift; sourceTree = "<group>"; };
 		9246CAD82607AD1B00F73610 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		92BF5400261372F80055051E /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		C97606EA931CBBB7C152CA0A /* Pods-Job Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Job Hunter.release.xcconfig"; path = "Target Support Files/Pods-Job Hunter/Pods-Job Hunter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 				9246CACA2605470D00F73610 /* SearchView.swift */,
 				9246CACC2605471A00F73610 /* BookmarkView.swift */,
 				9246CAD22607A7AA00F73610 /* JobDetailView.swift */,
+				92BF5400261372F80055051E /* ResultsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				9246CAC92605470200F73610 /* HomeView.swift in Sources */,
 				9246CAD52607ACEE00F73610 /* DescriptionView.swift in Sources */,
 				9246CACB2605470D00F73610 /* SearchView.swift in Sources */,
+				92BF5401261372F80055051E /* ResultsView.swift in Sources */,
 				9246CAD126063E0300F73610 /* HomeViewBanner.swift in Sources */,
 				9246CAB32605285500F73610 /* TabNavView.swift in Sources */,
 			);
