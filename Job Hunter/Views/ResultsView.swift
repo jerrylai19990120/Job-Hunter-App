@@ -47,7 +47,7 @@ struct ResultsView: View {
                     ResultItem(gr: gr)
                 }.padding(.bottom, gr.size.height*0.1)
             }
-        }//vstack
+        }.background(Color.white)//vstack
         
     }
 }

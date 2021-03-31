@@ -12,8 +12,6 @@ struct TabNavView: View {
     
     @State var selection = 0
     
-    @State var popup = false
-    
     var body: some View {
   
         GeometryReader { gr in
@@ -27,7 +25,7 @@ struct TabNavView: View {
                     }
                     
                     if self.selection == 1 {
-                        SearchView(gr: gr, popup: self.$popup)
+                        SearchView(gr: gr)
                     }
                     
                     if self.selection == 2 {
@@ -36,7 +34,7 @@ struct TabNavView: View {
                     
                     VStack {
                         Spacer()
-                        BottomTabBar(gr: gr, selection: self.$selection, popup: self.$popup)
+                        BottomTabBar(gr: gr, selection: self.$selection)
                     }.edgesIgnoringSafeArea(.bottom)
                     
                     

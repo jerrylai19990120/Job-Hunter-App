@@ -14,12 +14,9 @@ struct SearchView: View {
     
     @State var query = ""
     
-    @Binding var popup: Bool
-    
     var body: some View {
         
         ZStack{
-            /*LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)*/
             
             if(query != ""){
                 ResultsView(gr: gr, query: self.$query)
@@ -31,12 +28,15 @@ struct SearchView: View {
                 
                 VStack {
                     SearchHeader(gr: gr, query: $query)
-                        .offset(y: popup ? 0 : gr.size.height/3)
+                        .offset(y: gr.size.height/3)
+                        
                     Spacer()
                 }
             }
             
         }.animation(.default)
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
             
         
     }
@@ -45,7 +45,7 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { gr in
-            SearchView(gr: gr, popup: .constant(true))
+            SearchView(gr: gr)
         }
     }
 }

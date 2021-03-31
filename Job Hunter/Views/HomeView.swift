@@ -57,6 +57,8 @@ struct HomeView: View {
             }.padding(.top)// v stack
                 
         }.edgesIgnoringSafeArea(.top)
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 
@@ -128,6 +130,7 @@ struct SearchHeader: View {
             }
             
         }.padding()
+
     }
 }
 

@@ -21,7 +21,7 @@ struct BookmarkView: View {
                     Spacer()
                     Text("Bookmark")
                         .foregroundColor(.white)
-                        .font(.system(size: gr.size.width*0.06, weight: .semibold, design: .rounded))
+                        .font(.system(size: gr.size.width*0.06, weight: .semibold, design: .default))
                         .padding()
                     Spacer()
                 }.offset(y: gr.size.height*0.02)
@@ -44,7 +44,8 @@ struct BookmarkView: View {
             
             
             Spacer()
-        }
+        }.navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 
