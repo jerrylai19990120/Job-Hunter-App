@@ -25,6 +25,7 @@
 		9246CAD72607ACFC00F73610 /* CompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD62607ACFC00F73610 /* CompanyView.swift */; };
 		9246CAD92607AD1B00F73610 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD82607AD1B00F73610 /* ReviewView.swift */; };
 		92BF5401261372F80055051E /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF5400261372F80055051E /* ResultsView.swift */; };
+		92BF54032614EDF00055051E /* ResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF54022614EDF00055051E /* ResultItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		9246CAD62607ACFC00F73610 /* CompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyView.swift; sourceTree = "<group>"; };
 		9246CAD82607AD1B00F73610 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		92BF5400261372F80055051E /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		92BF54022614EDF00055051E /* ResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultItem.swift; sourceTree = "<group>"; };
 		C97606EA931CBBB7C152CA0A /* Pods-Job Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Job Hunter.release.xcconfig"; path = "Target Support Files/Pods-Job Hunter/Pods-Job Hunter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 				9246CAD42607ACEE00F73610 /* DescriptionView.swift */,
 				9246CAD62607ACFC00F73610 /* CompanyView.swift */,
 				9246CAD82607AD1B00F73610 /* ReviewView.swift */,
+				92BF54022614EDF00055051E /* ResultItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9246CAAF2605285500F73610 /* AppDelegate.swift in Sources */,
+				92BF54032614EDF00055051E /* ResultItem.swift in Sources */,
 				9246CACD2605471A00F73610 /* BookmarkView.swift in Sources */,
 				9246CAD72607ACFC00F73610 /* CompanyView.swift in Sources */,
 				9246CACF260564C100F73610 /* JobItem.swift in Sources */,
