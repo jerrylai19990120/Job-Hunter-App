@@ -20,17 +20,24 @@ struct SearchView: View {
         
         ZStack{
             /*LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)*/
-            Rectangle()
-                .fill(Color(red: 244/255 , green: 245/255, blue: 249/255))
-                .edgesIgnoringSafeArea([.top, .bottom])
-                
             
-            VStack {
-                SearchHeader(gr: gr, query: $query)
-                    .offset(y: popup ? 0 : gr.size.height/3)
-                Spacer()
+            if(query != ""){
+                ResultsView(gr: gr, query: self.$query)
+            } else {
+                Rectangle()
+                    .fill(Color(red: 244/255 , green: 245/255, blue: 249/255))
+                    .edgesIgnoringSafeArea([.top, .bottom])
+                
+                
+                VStack {
+                    SearchHeader(gr: gr, query: $query)
+                        .offset(y: popup ? 0 : gr.size.height/3)
+                    Spacer()
+                }
             }
+            
         }.animation(.default)
+            
         
     }
 }
