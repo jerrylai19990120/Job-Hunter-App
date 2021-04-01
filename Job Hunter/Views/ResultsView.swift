@@ -23,6 +23,9 @@ struct ResultsView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
+                    .onTapGesture {
+                        self.query = ""
+                    }
                 
                 HStack {
                     Image(systemName: "magnifyingglass")

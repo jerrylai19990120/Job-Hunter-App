@@ -17,48 +17,56 @@ struct HomeView: View {
     var body: some View {
         
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)
-            Rectangle()
-                .fill(Color(red: 244/255 , green: 245/255, blue: 249/255))
-                .offset(y: gr.size.height*0.24)
-            
-            //Header Stack
-            VStack(spacing: 0) {
-                SearchHeader(gr: gr, query: self.$query)
-                    .frame(height: gr.size.height*0.22)
+            if query != ""{
+                ResultsView(gr: gr, query: self.$query)
+            } else {
+                ZStack {
+                    LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)
+                    Rectangle()
+                        .fill(Color(red: 244/255 , green: 245/255, blue: 249/255))
+                        .offset(y: gr.size.height*0.24)
                     
+                    //Header Stack
+                    VStack(spacing: 0) {
+                        SearchHeader(gr: gr, query: self.$query)
+                            .frame(height: gr.size.height*0.22)
+                            
+                        
+                        //Main stack
+                        ScrollView(.vertical, showsIndicators: false) {
+                            VStack {
+                                HStack {
+                                    Text("Featured Jobs")
+                                        .font(.system(size: gr.size.width*0.06, weight: .medium, design: .default))
+                                    Spacer()
+                                }.padding([.top, .leading])
+                                
+                                NavigationLink(destination: JobDetailView(gr: gr).navigationBarItems(trailing: ShareButton(gr: gr))) {
+                                    JobItem(gr: gr)
+                                        .padding(.bottom)
+                                }.accentColor(.black)
+                                
+                                JobItem(gr: gr)
+                                    .padding(.bottom)
+                                
+                                Divider().padding()
+                                
+                                HomeViewBanner(gr: gr)
+                                
+                            }.padding(.bottom, gr.size.height*0.12)
+                            
+                        }
+                        
+                        
+                    }.padding(.top)// v stack
+                        
+                }.edgesIgnoringSafeArea(.top)
                 
-                //Main stack
-                ScrollView(.vertical, showsIndicators: false) {
-                    VStack {
-                        HStack {
-                            Text("Featured Jobs")
-                                .font(.system(size: gr.size.width*0.06, weight: .medium, design: .default))
-                            Spacer()
-                        }.padding([.top, .leading])
-                        
-                        NavigationLink(destination: JobDetailView(gr: gr).navigationBarItems(trailing: ShareButton(gr: gr))) {
-                            JobItem(gr: gr)
-                                .padding(.bottom)
-                        }.accentColor(.black)
-                        
-                        JobItem(gr: gr)
-                            .padding(.bottom)
-                        
-                        Divider().padding()
-                        
-                        HomeViewBanner(gr: gr)
-                        
-                    }.padding(.bottom, gr.size.height*0.12)
-                    
-                }
-                
-                
-            }.padding(.top)// v stack
-                
-        }.edgesIgnoringSafeArea(.top)
-        .navigationBarTitle("")
+            }
+        }.navigationBarTitle("")
         .navigationBarHidden(true)
+        
+        
     }
 }
 
