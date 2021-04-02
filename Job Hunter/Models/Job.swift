@@ -8,8 +8,14 @@
 
 import Foundation
 
-struct Job {
-    
+struct Job: Hashable {
     var title: String
     var company: String
+    var desc: String
+    var url: String
+    var lat: String
+    var lng: String
+    var contract: String
+    var created: String
+    var location: String
 }

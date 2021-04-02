@@ -21,7 +21,6 @@ struct TabNavView: View {
                     
                     if self.selection == 0 {
                         HomeView(gr: gr)
-                            
                     }
                     
                     if self.selection == 1 {

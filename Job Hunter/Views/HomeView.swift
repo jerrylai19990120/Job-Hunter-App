@@ -12,6 +12,8 @@ struct HomeView: View {
     
     var gr: GeometryProxy
     
+    @State var feature = [Job]()
+    
     @State var query = ""
     
     var body: some View {
@@ -41,13 +43,15 @@ struct HomeView: View {
                                     Spacer()
                                 }.padding([.top, .leading])
                                 
-                                NavigationLink(destination: JobDetailView(gr: gr).navigationBarItems(trailing: ShareButton(gr: gr))) {
-                                    JobItem(gr: gr)
-                                        .padding(.bottom)
-                                }.accentColor(.black)
+                                ForEach(self.feature, id:\.self){
+                                    job in
+                                    NavigationLink(destination: JobDetailView(gr: self.gr).navigationBarItems(trailing: ShareButton(gr: self.gr))) {
+                                        JobItem(gr: self.gr)
+                                            .padding(.bottom)
+                                    }.accentColor(.black)
+                                }
                                 
-                                JobItem(gr: gr)
-                                    .padding(.bottom)
+                                
                                 
                                 Divider().padding()
                                 
@@ -65,7 +69,13 @@ struct HomeView: View {
             }
         }.navigationBarTitle("")
         .navigationBarHidden(true)
-        
+        .onAppear {
+            DataService.instance.getFeatureJobs { (done) in
+                if done {
+                    self.feature = DataService.instance.featureJobs
+                }
+            }
+        }
         
     }
 }
