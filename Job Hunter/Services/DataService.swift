@@ -16,7 +16,14 @@ class DataService {
     
     var featureJobs = [Job]()
     
+    var formatter = DateFormatter()
+    
     func getFeatureJobs(completion: @escaping (_ status: Bool)->()){
+        
+        if(self.featureJobs.count != 0){
+            completion(true)
+            return
+        }
         
         AF.request("https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=toronto&full_time=1").responseJSON { (res) in
             if res.error == nil{
@@ -46,6 +53,8 @@ class DataService {
                         let contract = result["contract_time"].stringValue
                         let company = result["company"]["display_name"].stringValue
                         let desc = result["description"].stringValue
+                        
+                        let time = self.formatter.string(from: self.formatter.date(from: created) ?? Date())
                         
                         let job = Job(title: title, company: company, desc: desc, url: url, lat: lat, lng: lng, contract: contract, created: created, location: location)
                         

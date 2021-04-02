@@ -12,6 +12,8 @@ struct JobItem: View {
     
     var gr: GeometryProxy
     
+    var job: Job = Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")
+    
     @State var isBookMarked = false
     
     var body: some View {
@@ -28,14 +30,14 @@ struct JobItem: View {
             
             
             VStack(alignment: .leading) {
-                Text("Google, New York")
+                Text(job.company)
                     .foregroundColor(.gray)
                     .font(.system(size: gr.size.width*0.036, weight: .medium, design: .default))
                 
-                Text("Sr. UI Designer")
+                Text(job.title)
                     .font(.system(size: gr.size.width*0.05, weight: .medium, design: .default))
                 
-                Text("$45k-$60k/yr")
+                Text(job.location)
                     .foregroundColor(.gray)
                     .font(.system(size: gr.size.width*0.036, weight: .medium, design: .default))
                 
@@ -50,7 +52,7 @@ struct JobItem: View {
                 
                 Spacer()
                 
-                Text("8 days ago")
+                Text(job.created)
                     .font(.system(size: gr.size.width*0.036, weight: .medium, design: .default))
                     .foregroundColor(.gray)
                 Spacer()
