@@ -23,12 +23,14 @@
 		9246CAD32607A7AA00F73610 /* JobDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD22607A7AA00F73610 /* JobDetailView.swift */; };
 		9246CAD52607ACEE00F73610 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD42607ACEE00F73610 /* DescriptionView.swift */; };
 		9246CAD72607ACFC00F73610 /* CompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD62607ACFC00F73610 /* CompanyView.swift */; };
-		9246CAD92607AD1B00F73610 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD82607AD1B00F73610 /* ReviewView.swift */; };
+		9246CAD92607AD1B00F73610 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246CAD82607AD1B00F73610 /* MapView.swift */; };
 		92BF5401261372F80055051E /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF5400261372F80055051E /* ResultsView.swift */; };
 		92BF54032614EDF00055051E /* ResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF54022614EDF00055051E /* ResultItem.swift */; };
 		92BF5407261619530055051E /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF5406261619530055051E /* DataService.swift */; };
 		92BF54092616199D0055051E /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF54082616199D0055051E /* Job.swift */; };
 		92BF540C2617C4D10055051E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540B2617C4D10055051E /* Constant.swift */; };
+		92BF540E261904640055051E /* UIMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540D261904640055051E /* UIMap.swift */; };
+		92BF5410261915BC0055051E /* LocationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540F261915BC0055051E /* LocationPin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,12 +53,14 @@
 		9246CAD22607A7AA00F73610 /* JobDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailView.swift; sourceTree = "<group>"; };
 		9246CAD42607ACEE00F73610 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		9246CAD62607ACFC00F73610 /* CompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyView.swift; sourceTree = "<group>"; };
-		9246CAD82607AD1B00F73610 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		9246CAD82607AD1B00F73610 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		92BF5400261372F80055051E /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		92BF54022614EDF00055051E /* ResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultItem.swift; sourceTree = "<group>"; };
 		92BF5406261619530055051E /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		92BF54082616199D0055051E /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		92BF540B2617C4D10055051E /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		92BF540D261904640055051E /* UIMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMap.swift; sourceTree = "<group>"; };
+		92BF540F261915BC0055051E /* LocationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPin.swift; sourceTree = "<group>"; };
 		C97606EA931CBBB7C152CA0A /* Pods-Job Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Job Hunter.release.xcconfig"; path = "Target Support Files/Pods-Job Hunter/Pods-Job Hunter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,7 +150,7 @@
 				9246CAD026063E0300F73610 /* HomeViewBanner.swift */,
 				9246CAD42607ACEE00F73610 /* DescriptionView.swift */,
 				9246CAD62607ACFC00F73610 /* CompanyView.swift */,
-				9246CAD82607AD1B00F73610 /* ReviewView.swift */,
+				9246CAD82607AD1B00F73610 /* MapView.swift */,
 				92BF54022614EDF00055051E /* ResultItem.swift */,
 			);
 			path = Components;
@@ -164,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				92BF54082616199D0055051E /* Job.swift */,
+				92BF540F261915BC0055051E /* LocationPin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				92BF540B2617C4D10055051E /* Constant.swift */,
+				92BF540D261904640055051E /* UIMap.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -305,7 +311,8 @@
 				9246CAD72607ACFC00F73610 /* CompanyView.swift in Sources */,
 				9246CACF260564C100F73610 /* JobItem.swift in Sources */,
 				9246CAD32607A7AA00F73610 /* JobDetailView.swift in Sources */,
-				9246CAD92607AD1B00F73610 /* ReviewView.swift in Sources */,
+				9246CAD92607AD1B00F73610 /* MapView.swift in Sources */,
+				92BF540E261904640055051E /* UIMap.swift in Sources */,
 				92BF5407261619530055051E /* DataService.swift in Sources */,
 				9246CAB12605285500F73610 /* SceneDelegate.swift in Sources */,
 				9246CAC726052AD100F73610 /* BottomTabBar.swift in Sources */,
@@ -314,6 +321,7 @@
 				9246CAD52607ACEE00F73610 /* DescriptionView.swift in Sources */,
 				9246CACB2605470D00F73610 /* SearchView.swift in Sources */,
 				92BF5401261372F80055051E /* ResultsView.swift in Sources */,
+				92BF5410261915BC0055051E /* LocationPin.swift in Sources */,
 				92BF54092616199D0055051E /* Job.swift in Sources */,
 				9246CAD126063E0300F73610 /* HomeViewBanner.swift in Sources */,
 				9246CAB32605285500F73610 /* TabNavView.swift in Sources */,

@@ -45,7 +45,7 @@ struct HomeView: View {
                                 
                                 ForEach(self.feature, id:\.self){
                                     job in
-                                    NavigationLink(destination: JobDetailView(gr: self.gr).navigationBarItems(trailing: ShareButton(gr: self.gr))) {
+                                    NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr))) {
                                         JobItem(gr: self.gr, job: job)
                                             .padding(.bottom)
                                     }.accentColor(.black)

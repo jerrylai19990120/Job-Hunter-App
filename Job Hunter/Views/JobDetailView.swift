@@ -12,6 +12,8 @@ struct JobDetailView: View {
     
     var gr: GeometryProxy
     
+    @State var job: Job = Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")
+    
     @State var selection = 0
     
     @State var bookMark = false
@@ -34,22 +36,24 @@ struct JobDetailView: View {
                 
                 
                 VStack(spacing: gr.size.height*0.01){
-                    Image("google")
-                        .resizable()
-                        .renderingMode(.original)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: gr.size.width*0.2, height: gr.size.width*0.2)
-                        .cornerRadius(10)
-                        .shadow(radius: 6)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(red: 92/255, green: 107/255, blue: 192/255))
+                            .frame(width: gr.size.width*0.2, height: gr.size.width*0.2)
+                        
+                        Text("\(String(job.company.prefix(1)))")
+                            .font(.system(size: gr.size.width*0.1, weight: .medium, design: .default))
+                            .foregroundColor(.white)
+                    }.shadow(radius: 6)
                     
-                    Text("Sr. UI Designer")
+                    Text(job.title)
                         .font(.system(size: gr.size.width*0.07, weight: .medium, design: .default))
                     
-                    Text("Google, New York")
+                    Text(job.company)
                         .foregroundColor(.gray)
                         .font(.system(size: gr.size.width*0.038, weight: .medium, design: .default))
                     
-                    Text("$45k-$60k/yr")
+                    Text(job.location)
                         .foregroundColor(Color(red: 117/255, green: 122/255, blue: 143/255))
                         .font(.system(size: gr.size.width*0.04, weight: .medium, design: .default))
                     
@@ -75,7 +79,7 @@ struct JobDetailView: View {
                         
                         Divider().frame(height: gr.size.height*0.065)
                         
-                        Text("Reviews")
+                        Text("Location")
                             .foregroundColor(selection==2 ? .black : .gray)
                             .font(.system(size: gr.size.width*0.042, weight: .medium, design: .default))
                             .padding()
@@ -89,15 +93,15 @@ struct JobDetailView: View {
                     
                     
                     if selection == 0 {
-                        DescriptionView(gr: gr)
+                        DescriptionView(gr: gr, job: job)
                     }
                     
                     if selection == 1 {
-                        CompanyView(gr: gr)
+                        CompanyView(gr: gr, job: job)
                     }
                     
                     if selection == 2 {
-                        ReviewView(gr: gr)
+                        MapView(gr: gr, job: job)
                     }
                     
                     
@@ -107,7 +111,7 @@ struct JobDetailView: View {
                 
                 VStack {
                     Spacer()
-                    ApplyJobBar(gr: gr, bookMark: $bookMark)
+                    ApplyJobBar(gr: gr, job: $job, bookMark: $bookMark)
                 }
                 
             }.edgesIgnoringSafeArea(.top)
@@ -127,6 +131,8 @@ struct JobDetailView_Previews: PreviewProvider {
 struct ApplyJobBar: View {
     
     var gr: GeometryProxy
+    
+    @Binding var job: Job
     
     @Binding var bookMark: Bool
     
@@ -150,8 +156,13 @@ struct ApplyJobBar: View {
                     .foregroundColor(.white)
                 Spacer()
             }.padding()
-                .background(Color("primaryPurple"))
-                .cornerRadius(10)
+            .background(Color("primaryPurple"))
+            .cornerRadius(10)
+            .onTapGesture {
+                if let url = URL(string: self.job.url) {
+                    UIApplication.shared.open(url)
+                }
+            }
             
         }.padding()
             .frame(width: gr.size.width)

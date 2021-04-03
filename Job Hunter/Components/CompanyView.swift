@@ -12,13 +12,13 @@ struct CompanyView: View {
     
     var gr: GeometryProxy
     
-    @State var des = "We value diversity at our company. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or any other applicable legally protected characteristics in the location in which the candidate is applying. For job positions in San Francisco, CA, and other locations where required, we will consider for employment qualified applicants with arrest and conviction records."
+    var job: Job = Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")
     
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                Text("\(des)")
+                Text("\(job.desc)")
                     .foregroundColor(.gray)
                     .font(.system(size: gr.size.width*0.04, weight: .medium, design: .default))
                     .padding()

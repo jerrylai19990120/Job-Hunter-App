@@ -28,11 +28,6 @@ struct JobItem: View {
                         .fontWeight(.medium)
                         .foregroundColor(.white)
                 }
-                /*Image("logo")
-                    .resizable()
-                    .renderingMode(.original)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: gr.size.width*0.1, height: gr.size.width*0.1)*/
                 
                 Spacer()
             }
