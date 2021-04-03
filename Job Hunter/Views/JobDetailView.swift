@@ -69,7 +69,7 @@ struct JobDetailView: View {
                         
                         Divider().frame(height: gr.size.height*0.065)
                         
-                        Text("Company")
+                        Text("Detail")
                             .foregroundColor(selection==1 ? .black : .gray)
                             .font(.system(size: gr.size.width*0.042, weight: .medium, design: .default))
                             .padding()
@@ -97,7 +97,7 @@ struct JobDetailView: View {
                     }
                     
                     if selection == 1 {
-                        CompanyView(gr: gr, job: job)
+                        DetailSection(gr: gr, job: job)
                     }
                     
                     if selection == 2 {

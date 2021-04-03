@@ -1,5 +1,5 @@
 //
-//  ReviewView.swift
+//  MapView.swift
 //  Job Hunter
 //
 //  Created by Jerry Lai on 2021-03-21.

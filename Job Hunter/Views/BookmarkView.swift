@@ -12,6 +12,8 @@ struct BookmarkView: View {
     
     var gr: GeometryProxy
     
+    @State var bookMarkedJobs = [Job]()
+    
     var body: some View {
         VStack {
             ZStack {
@@ -30,12 +32,14 @@ struct BookmarkView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    JobItem(gr: gr, isBookMarked: true)
-                        .padding(.bottom)
-                    JobItem(gr: gr, isBookMarked: true)
-                        .padding(.bottom)
-                    JobItem(gr: gr, isBookMarked: true)
-                        .padding(.bottom)
+                    ForEach(self.bookMarkedJobs, id: \.self){
+                        job in
+                        NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr))) {
+                            JobItem(gr: self.gr, job: job,isBookMarked: true)
+                                .padding(.bottom)
+                        }.accentColor(.black)
+                        
+                    }
                     
                 }.padding()
             }.frame(width: gr.size.width)
