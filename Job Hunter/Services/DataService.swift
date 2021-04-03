@@ -16,7 +16,6 @@ class DataService {
     
     var featureJobs = [Job]()
     
-    var formatter = DateFormatter()
     
     func getFeatureJobs(completion: @escaping (_ status: Bool)->()){
         
@@ -54,9 +53,10 @@ class DataService {
                         let company = result["company"]["display_name"].stringValue
                         let desc = result["description"].stringValue
                         
-                        let time = self.formatter.string(from: self.formatter.date(from: created) ?? Date())
+                        let dateString = String(created.prefix(10))
                         
-                        let job = Job(title: title, company: company, desc: desc, url: url, lat: lat, lng: lng, contract: contract, created: created, location: location)
+                        
+                        let job = Job(title: title, company: company, desc: desc, url: url, lat: lat, lng: lng, contract: contract, created: dateString, location: location)
                         
                         self.featureJobs.append(job)
                     }

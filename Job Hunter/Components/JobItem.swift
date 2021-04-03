@@ -19,11 +19,20 @@ struct JobItem: View {
     var body: some View {
         HStack {
             VStack {
-                Image("google")
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(red: 92/255, green: 107/255, blue: 192/255))
+                        .frame(width: gr.size.width*0.1, height: gr.size.width*0.1)
+                    
+                    Text("\(String(job.company.prefix(1)))")
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                }
+                /*Image("logo")
                     .resizable()
                     .renderingMode(.original)
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: gr.size.width*0.1, height: gr.size.width*0.1)
+                    .frame(width: gr.size.width*0.1, height: gr.size.width*0.1)*/
                 
                 Spacer()
             }
@@ -32,14 +41,15 @@ struct JobItem: View {
             VStack(alignment: .leading) {
                 Text(job.company)
                     .foregroundColor(.gray)
-                    .font(.system(size: gr.size.width*0.036, weight: .medium, design: .default))
+                    .font(.system(size: gr.size.width*0.033, weight: .medium, design: .default))
                 
                 Text(job.title)
-                    .font(.system(size: gr.size.width*0.05, weight: .medium, design: .default))
+                    .font(.system(size: gr.size.width*0.046, weight: .medium, design: .default))
+
                 
                 Text(job.location)
                     .foregroundColor(.gray)
-                    .font(.system(size: gr.size.width*0.036, weight: .medium, design: .default))
+                    .font(.system(size: gr.size.width*0.033, weight: .medium, design: .default))
                 
                 Spacer()
             }
@@ -49,11 +59,14 @@ struct JobItem: View {
                 Image(systemName: isBookMarked ? "bookmark.fill" : "bookmark")
                     .foregroundColor(.gray)
                     .font(.system(size: gr.size.width*0.036, weight: .medium, design: .default))
+                    .onTapGesture {
+                        self.isBookMarked.toggle()
+                    }
                 
                 Spacer()
                 
                 Text(job.created)
-                    .font(.system(size: gr.size.width*0.036, weight: .medium, design: .default))
+                    .font(.system(size: gr.size.width*0.033, weight: .medium, design: .default))
                     .foregroundColor(.gray)
                 Spacer()
             }
