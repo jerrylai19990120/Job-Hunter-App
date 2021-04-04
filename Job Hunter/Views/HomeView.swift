@@ -60,7 +60,7 @@ struct HomeView: View {
                                 
                                 Divider().padding()
                                 
-                                HomeViewBanner(gr: gr, slideup: self.slideup)
+                                HomeViewBanner(gr: gr, slideup: self.$slideup)
                                 
                             }.padding(.bottom, gr.size.height*0.12)
                             
