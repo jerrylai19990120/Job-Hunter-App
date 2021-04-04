@@ -31,6 +31,7 @@
 		92BF540C2617C4D10055051E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540B2617C4D10055051E /* Constant.swift */; };
 		92BF540E261904640055051E /* UIMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540D261904640055051E /* UIMap.swift */; };
 		92BF5410261915BC0055051E /* LocationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540F261915BC0055051E /* LocationPin.swift */; };
+		92BF5412261A882B0055051E /* TipsSlideUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF5411261A882B0055051E /* TipsSlideUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		92BF540B2617C4D10055051E /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		92BF540D261904640055051E /* UIMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMap.swift; sourceTree = "<group>"; };
 		92BF540F261915BC0055051E /* LocationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPin.swift; sourceTree = "<group>"; };
+		92BF5411261A882B0055051E /* TipsSlideUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsSlideUp.swift; sourceTree = "<group>"; };
 		C97606EA931CBBB7C152CA0A /* Pods-Job Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Job Hunter.release.xcconfig"; path = "Target Support Files/Pods-Job Hunter/Pods-Job Hunter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 				9246CACC2605471A00F73610 /* BookmarkView.swift */,
 				9246CAD22607A7AA00F73610 /* JobDetailView.swift */,
 				92BF5400261372F80055051E /* ResultsView.swift */,
+				92BF5411261A882B0055051E /* TipsSlideUp.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				9246CACF260564C100F73610 /* JobItem.swift in Sources */,
 				9246CAD32607A7AA00F73610 /* JobDetailView.swift in Sources */,
 				9246CAD92607AD1B00F73610 /* MapView.swift in Sources */,
+				92BF5412261A882B0055051E /* TipsSlideUp.swift in Sources */,
 				92BF540E261904640055051E /* UIMap.swift in Sources */,
 				92BF5407261619530055051E /* DataService.swift in Sources */,
 				9246CAB12605285500F73610 /* SceneDelegate.swift in Sources */,

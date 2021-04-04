@@ -16,6 +16,8 @@ struct JobItem: View {
     
     @State var isBookMarked = false
     
+    @Binding var jobs: [Job]
+    
     var body: some View {
         HStack {
             VStack {
@@ -64,6 +66,7 @@ struct JobItem: View {
                             var arr = DataService.instance.loadJob()
                             arr = arr.filter({$0.title != self.job.title})
                             DataService.instance.saveJob(arr)
+                            self.jobs = self.jobs.filter({$0.title != self.job.title})
                         }
                     }
                 
@@ -85,7 +88,7 @@ struct JobItem: View {
 struct JobItem_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { gr in
-            JobItem(gr: gr)
+            JobItem(gr: gr, jobs: .constant([]))
         }
     }
 }

@@ -35,7 +35,7 @@ struct BookmarkView: View {
                     ForEach(self.bookMarkedJobs, id: \.self){
                         job in
                         NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr))) {
-                            JobItem(gr: self.gr, job: job,isBookMarked: true)
+                            JobItem(gr: self.gr, job: job,isBookMarked: true, jobs: self.$bookMarkedJobs)
                                 .padding(.bottom)
                         }.accentColor(.black)
                         
