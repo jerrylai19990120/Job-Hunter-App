@@ -46,6 +46,9 @@ struct ResultItem: View {
                     .font(.system(size: gr.size.width*0.04, weight: .medium, design: .default))
                     .onTapGesture {
                         self.isBookMarked.toggle()
+                        var arr = DataService.instance.loadJob()
+                        arr.append(self.job)
+                        DataService.instance.saveJob(arr)
                     }
             }
             Divider()
