@@ -147,9 +147,14 @@ struct ApplyJobBar: View {
                 .cornerRadius(10)
                 .onTapGesture {
                     self.bookMark.toggle()
-                    var arr = DataService.instance.loadJob()
-                    arr.append(self.job)
-                    DataService.instance.saveJob(arr)
+                    if self.bookMark {
+                        var arr = DataService.instance.loadJob()
+                        arr.append(self.job)
+                        DataService.instance.saveJob(arr)
+                    }else{
+                        
+                    }
+                    
                 }
             
             HStack {
