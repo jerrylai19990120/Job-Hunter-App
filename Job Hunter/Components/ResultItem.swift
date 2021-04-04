@@ -12,24 +12,30 @@ struct ResultItem: View {
     
     var gr: GeometryProxy
     
+    var job: Job = Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")
+    
     @State var isBookMarked = false
     
     var body: some View {
         VStack {
             HStack {
-                Image("google")
-                    .resizable()
-                    .renderingMode(.original)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: gr.size.width*0.16, height: gr.size.width*0.16)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(red: 92/255, green: 107/255, blue: 192/255))
+                        .frame(width: gr.size.width*0.1, height: gr.size.width*0.1)
+                    
+                    Text("\(String(job.company.prefix(1)))")
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                }
                 
                 VStack(alignment: .leading) {
-                    Text("Software Engineer")
+                    Text(job.title)
                         .font(.system(size: gr.size.width*0.054, weight: .medium, design: .default))
-                    Text("Google")
+                    Text(job.company)
                         .font(.system(size: gr.size.width*0.04, weight: .regular, design: .default))
                     
-                    Text("Waterloo, ON")
+                    Text(job.location)
                         .foregroundColor(.gray)
                         .font(.system(size: gr.size.width*0.04, weight: .regular, design: .default))
                 }

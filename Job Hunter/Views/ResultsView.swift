@@ -14,6 +14,8 @@ struct ResultsView: View {
     
     @Binding var query: String
     
+    @State var results: [Job] = [Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")]
+    
     var body: some View {
         
         VStack {
@@ -30,7 +32,14 @@ struct ResultsView: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                     
-                    TextField("\(query)", text: $query)
+                    TextField("\(query)", text: $query, onCommit: {
+                        DataService.instance.searchJobs(query: self.query) { (success) in
+                            if success {
+                                self.results = DataService.instance.searchJobs
+                            }
+                        }
+                    })
+                    
                     
                     }.padding()
                     .background(Color(red: 238/255, green: 243/255, blue: 248/255))
@@ -40,14 +49,14 @@ struct ResultsView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    ResultItem(gr: gr)
-                    ResultItem(gr: gr)
-                    ResultItem(gr: gr)
-                    ResultItem(gr: gr)
-                    ResultItem(gr: gr)
-                    ResultItem(gr: gr)
-                    ResultItem(gr: gr)
-                    ResultItem(gr: gr)
+                    ForEach(self.results, id: \.self){
+                        job in
+                        NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr))) {
+                            ResultItem(gr: self.gr, job: job)
+                        }.accentColor(.black)
+                        
+                    }
+                    
                 }.padding(.bottom, gr.size.height*0.1)
             }
         }.background(Color.white)//vstack
