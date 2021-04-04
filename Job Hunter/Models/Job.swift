@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Job: Hashable {
+struct Job: Hashable, Encodable, Decodable {
     var title: String
     var company: String
     var desc: String

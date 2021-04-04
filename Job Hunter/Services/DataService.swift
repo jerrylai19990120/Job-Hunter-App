@@ -141,4 +141,25 @@ class DataService {
         
     }
     
+    func saveJob(_ jobs: [Job]){
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(jobs) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "savedJobs")
+        }
+    }
+    
+    func loadJob()->[Job]{
+        if let savedJobs = UserDefaults.standard.object(forKey: "savedJobs") as? Data {
+            
+            let decoder = JSONDecoder()
+            if let loadedJobs = try? decoder.decode([Job].self, from: savedJobs){
+                return loadedJobs
+            }
+            
+            return []
+        }
+        return []
+    }
+    
 }

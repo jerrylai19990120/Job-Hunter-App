@@ -42,6 +42,7 @@ struct BookmarkView: View {
                     }
                     
                 }.padding()
+                .frame(width: gr.size.width)
             }.frame(width: gr.size.width)
             
             
@@ -50,6 +51,9 @@ struct BookmarkView: View {
             Spacer()
         }.navigationBarTitle("")
         .navigationBarHidden(true)
+        .onAppear {
+            self.bookMarkedJobs = DataService.instance.loadJob()
+        }
     }
 }
 
