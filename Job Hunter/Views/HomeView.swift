@@ -16,11 +16,15 @@ struct HomeView: View {
     
     @State var query = ""
     
+    @State var didSearch = false
+    
+    @State var results: [Job] = [Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")]
+    
     var body: some View {
         
         ZStack {
-            if query != ""{
-                ResultsView(gr: gr, query: self.$query)
+            if didSearch {
+                ResultsView(gr: gr, query: self.$query, didSearch: $didSearch, results: self.$results)
             } else {
                 ZStack {
                     LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)
@@ -30,7 +34,7 @@ struct HomeView: View {
                     
                     //Header Stack
                     VStack(spacing: 0) {
-                        SearchHeader(gr: gr, query: self.$query)
+                        SearchHeader(gr: gr, query: self.$query, didSearch: self.$didSearch, results: self.$results)
                             .frame(height: gr.size.height*0.22)
                             
                         
@@ -94,10 +98,21 @@ struct SearchHeader: View {
     
     @Binding var query: String
     
+    @Binding var didSearch: Bool
+    
+    @Binding var results: [Job]
+    
     var body: some View {
         VStack{
             HStack {
-                TextField("Search Job", text: self.$query)
+                TextField("Search Job", text: self.$query, onCommit: {
+                    DataService.instance.searchJobs(query: self.query) { (success) in
+                        if success {
+                            self.results = DataService.instance.searchJobs
+                            self.didSearch = true
+                        }
+                    }
+                })
                 
                 Image(systemName: "magnifyingglass")
                     .resizable()

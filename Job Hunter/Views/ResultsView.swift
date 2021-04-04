@@ -14,20 +14,23 @@ struct ResultsView: View {
     
     @Binding var query: String
     
-    @State var results: [Job] = [Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")]
+    @Binding var didSearch: Bool
+    
+    @Binding var results: [Job]
     
     var body: some View {
         
         VStack {
             
             HStack{
-                Image(systemName: "arrow.left")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
-                    .onTapGesture {
-                        self.query = ""
-                    }
+                NavigationLink(destination: HomeView(gr: gr).navigationBarTitle("").navigationBarHidden(true), label: {
+                    Image(systemName: "arrow.left")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: gr.size.width*0.06, height: gr.size.width*0.06)
+                        
+                }).accentColor(.black)
+                
                 
                 HStack {
                     Image(systemName: "magnifyingglass")
@@ -36,6 +39,7 @@ struct ResultsView: View {
                         DataService.instance.searchJobs(query: self.query) { (success) in
                             if success {
                                 self.results = DataService.instance.searchJobs
+                                self.didSearch = true
                             }
                         }
                     })
@@ -67,7 +71,7 @@ struct ResultsView: View {
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { gr in
-            ResultsView(gr: gr, query: .constant("software engineer"))
+            ResultsView(gr: gr, query: .constant("software engineer"), didSearch: .constant(true), results: .constant([]))
         }
     }
 }

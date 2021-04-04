@@ -14,12 +14,16 @@ struct SearchView: View {
     
     @State var query = ""
     
+    @State var didSearch = false
+    
+    @State var results: [Job] = [Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")]
+    
     var body: some View {
         
         ZStack{
             
-            if(query != ""){
-                ResultsView(gr: gr, query: self.$query)
+            if didSearch {
+                ResultsView(gr: gr, query: self.$query, didSearch: self.$didSearch, results: self.$results)
             } else {
                 Rectangle()
                     .fill(Color(red: 244/255 , green: 245/255, blue: 249/255))
@@ -27,7 +31,7 @@ struct SearchView: View {
                 
                 
                 VStack {
-                    SearchHeader(gr: gr, query: $query)
+                    SearchHeader(gr: gr, query: $query, didSearch: $didSearch, results: $results)
                         .offset(y: gr.size.height/3)
                         
                     Spacer()

@@ -152,7 +152,9 @@ struct ApplyJobBar: View {
                         arr.append(self.job)
                         DataService.instance.saveJob(arr)
                     }else{
-                        
+                        var arr = DataService.instance.loadJob()
+                        arr = arr.filter({$0.title != self.job.title})
+                        DataService.instance.saveJob(arr)
                     }
                     
                 }
