@@ -12,6 +12,8 @@ struct HomeViewBanner: View {
     
     var gr: GeometryProxy
     
+    @Binding var slideup: Bool
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -80,7 +82,7 @@ struct HomeViewBanner: View {
 struct HomeViewBanner_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { gr in
-            HomeViewBanner(gr: gr)
+            HomeViewBanner(gr: gr, slideup: .constant(false))
         }
     }
 }

@@ -20,6 +20,8 @@ struct HomeView: View {
     
     @State var results: [Job] = [Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")]
     
+    @State var slideup = false
+    
     var body: some View {
         
         ZStack {
@@ -56,10 +58,9 @@ struct HomeView: View {
                                 }
                                 
                                 
-                                
                                 Divider().padding()
                                 
-                                HomeViewBanner(gr: gr)
+                                HomeViewBanner(gr: gr, slideup: self.slideup)
                                 
                             }.padding(.bottom, gr.size.height*0.12)
                             
