@@ -23,7 +23,7 @@ struct ResultsView: View {
         VStack {
             
             HStack{
-                NavigationLink(destination: HomeView(gr: gr).navigationBarTitle("").navigationBarHidden(true), label: {
+                NavigationLink(destination: TabNavView(selection: 0).navigationBarTitle("").navigationBarHidden(true), label: {
                     Image(systemName: "arrow.left")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -36,12 +36,16 @@ struct ResultsView: View {
                     Image(systemName: "magnifyingglass")
                     
                     TextField("\(query)", text: $query, onCommit: {
-                        DataService.instance.searchJobs(query: self.query) { (success) in
-                            if success {
-                                self.results = DataService.instance.searchJobs
-                                self.didSearch = true
+                        
+                        if self.query != "" {
+                            DataService.instance.searchJobs(query: self.query) { (success) in
+                                if success {
+                                    self.results = DataService.instance.searchJobs
+                                    self.didSearch = true
+                                }
                             }
                         }
+                        
                     })
                     
                     

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SlideOverCard
 
 struct SearchView: View {
     
@@ -17,6 +18,12 @@ struct SearchView: View {
     @State var didSearch = false
     
     @State var results: [Job] = [Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")]
+    
+    @State private var normal = CardPosition.bottom
+    @State private var normalBg = BackgroundStyle.blur
+    
+    @State private var location = CardPosition.bottom
+    @State private var locationBg = BackgroundStyle.blur
     
     var body: some View {
         
@@ -31,11 +38,19 @@ struct SearchView: View {
                 
                 
                 VStack {
-                    SearchHeader(gr: gr, query: $query, didSearch: $didSearch, results: $results)
+                    SearchHeader(gr: gr, query: $query, didSearch: $didSearch, results: $results, normal: $normal, location: $location)
                         .offset(y: gr.size.height/3)
                         
                     Spacer()
                 }
+            }
+            
+            SlideOverCard($normal, backgroundStyle: $normalBg) {
+                NormalFilter(gr: self.gr)
+            }
+            
+            SlideOverCard($location, backgroundStyle: $locationBg) {
+                LocationFilter(gr: self.gr)
             }
             
         }.animation(.default)

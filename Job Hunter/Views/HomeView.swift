@@ -24,6 +24,12 @@ struct HomeView: View {
     @State private var position = CardPosition.bottom
     @State private var background = BackgroundStyle.blur
     
+    @State private var normal = CardPosition.bottom
+    @State private var normalBg = BackgroundStyle.blur
+    
+    @State private var location = CardPosition.bottom
+    @State private var locationBg = BackgroundStyle.blur
+    
     var body: some View {
         
         ZStack {
@@ -38,7 +44,7 @@ struct HomeView: View {
                     
                     //Header Stack
                     VStack(spacing: 0) {
-                        SearchHeader(gr: gr, query: self.$query, didSearch: self.$didSearch, results: self.$results)
+                        SearchHeader(gr: gr, query: self.$query, didSearch: self.$didSearch, results: self.$results, normal: self.$normal, location: self.$location)
                             .frame(height: gr.size.height*0.22)
                             
                         
@@ -80,6 +86,14 @@ struct HomeView: View {
                     TipsSlideUp(gr: self.gr)
             }
             
+            SlideOverCard($normal, backgroundStyle: $normalBg) {
+                NormalFilter(gr: self.gr)
+            }
+            
+            SlideOverCard($location, backgroundStyle: $locationBg) {
+                LocationFilter(gr: self.gr)
+            }
+            
             
         }.navigationBarTitle("")
         .navigationBarHidden(true)
@@ -112,16 +126,23 @@ struct SearchHeader: View {
     
     @Binding var results: [Job]
     
+    @Binding var normal: CardPosition
+    
+    @Binding var location: CardPosition
+    
     var body: some View {
         VStack{
             HStack {
                 TextField("Search Job", text: self.$query, onCommit: {
-                    DataService.instance.searchJobs(query: self.query) { (success) in
-                        if success {
-                            self.results = DataService.instance.searchJobs
-                            self.didSearch = true
+                    if self.query != "" {
+                        DataService.instance.searchJobs(query: self.query) { (success) in
+                            if success {
+                                self.results = DataService.instance.searchJobs
+                                self.didSearch = true
+                            }
                         }
                     }
+                    
                 })
                 
                 Image(systemName: "magnifyingglass")
@@ -132,6 +153,7 @@ struct SearchHeader: View {
                 .cornerRadius(16)
             
             HStack {
+                Spacer()
                 HStack {
                     Image(systemName: "line.horizontal.3.decrease.circle.fill")
                         .resizable()
@@ -144,6 +166,9 @@ struct SearchHeader: View {
                 }.padding()
                     .background(Color(red: 148/255, green: 101/255, blue: 251/255))
                     .cornerRadius(18)
+                    .onTapGesture {
+                        self.normal = CardPosition.middle
+                }
                 
                 Spacer()
                 HStack {
@@ -157,19 +182,11 @@ struct SearchHeader: View {
                 }.padding()
                     .background(Color(red: 148/255, green: 101/255, blue: 251/255))
                     .cornerRadius(18)
+                    .onTapGesture {
+                        self.location = CardPosition.top
+                }
                 
                 Spacer()
-                HStack {
-                    Image(systemName: "square.grid.2x2.fill")
-                        .resizable()
-                        .frame(width: gr.size.width*0.04, height: gr.size.width*0.04)
-                        .foregroundColor(.white)
-                    Text("Category")
-                        .foregroundColor(.white)
-                        .font(.system(size: gr.size.width*0.04, weight: .regular, design: .rounded))
-                }.padding()
-                    .background(Color(red: 148/255, green: 101/255, blue: 251/255))
-                    .cornerRadius(18)
             }
             
         }.padding()
