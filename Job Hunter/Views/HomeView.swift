@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SlideOverCard
 
 struct HomeView: View {
     
@@ -19,8 +20,9 @@ struct HomeView: View {
     @State var didSearch = false
     
     @State var results: [Job] = [Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")]
-    
-    @State var slideup = false
+        
+    @State private var position = CardPosition.bottom
+    @State private var background = BackgroundStyle.blur
     
     var body: some View {
         
@@ -60,7 +62,7 @@ struct HomeView: View {
                                 
                                 Divider().padding()
                                 
-                                HomeViewBanner(gr: gr, slideup: self.$slideup)
+                                HomeViewBanner(gr: gr, slideup: self.$position)
                                 
                             }.padding(.bottom, gr.size.height*0.12)
                             
@@ -72,6 +74,13 @@ struct HomeView: View {
                 }.edgesIgnoringSafeArea(.top)
                 
             }
+            
+            
+            SlideOverCard($position, backgroundStyle: $background) {
+                    TipsSlideUp(gr: self.gr)
+            }
+            
+            
         }.navigationBarTitle("")
         .navigationBarHidden(true)
         .onAppear {

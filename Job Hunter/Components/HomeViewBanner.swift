@@ -7,12 +7,13 @@
 //
 
 import SwiftUI
+import SlideOverCard
 
 struct HomeViewBanner: View {
     
     var gr: GeometryProxy
     
-    @Binding var slideup: Bool
+    @Binding var slideup: CardPosition
     
     var body: some View {
         ZStack {
@@ -68,6 +69,9 @@ struct HomeViewBanner: View {
             
                         Spacer()
                     }.padding(.bottom)
+                    .onTapGesture {
+                        self.slideup = CardPosition.top
+                    }
                     
                 }//.padding()
                 .frame(width: gr.size.width*0.96, height: gr.size.height*0.4*0.6)
@@ -82,7 +86,7 @@ struct HomeViewBanner: View {
 struct HomeViewBanner_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { gr in
-            HomeViewBanner(gr: gr, slideup: .constant(false))
+            HomeViewBanner(gr: gr, slideup: .constant(CardPosition.top))
         }
     }
 }
