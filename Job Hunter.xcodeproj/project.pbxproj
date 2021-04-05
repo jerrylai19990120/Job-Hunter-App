@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,7 @@
 		92BF540E261904640055051E /* UIMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540D261904640055051E /* UIMap.swift */; };
 		92BF5410261915BC0055051E /* LocationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540F261915BC0055051E /* LocationPin.swift */; };
 		92BF5412261A882B0055051E /* TipsSlideUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF5411261A882B0055051E /* TipsSlideUp.swift */; };
+		92BF5415261A8BA90055051E /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = 92BF5414261A8BA90055051E /* SlideOverCard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92BF5415261A8BA90055051E /* SlideOverCard in Frameworks */,
 				7B38CCE46B897427E21EECBD /* Pods_Job_Hunter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +213,9 @@
 			dependencies = (
 			);
 			name = "Job Hunter";
+			packageProductDependencies = (
+				92BF5414261A8BA90055051E /* SlideOverCard */,
+			);
 			productName = "Job Hunter";
 			productReference = 9246CAAB2605285500F73610 /* Job Hunter.app */;
 			productType = "com.apple.product-type.application";
@@ -239,6 +244,9 @@
 				Base,
 			);
 			mainGroup = 9246CAA22605285500F73610;
+			packageReferences = (
+				92BF5413261A8BA90055051E /* XCRemoteSwiftPackageReference "swiftUI-slide-over-card" */,
+			);
 			productRefGroup = 9246CAAC2605285500F73610 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -526,6 +534,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		92BF5413261A8BA90055051E /* XCRemoteSwiftPackageReference "swiftUI-slide-over-card" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/moifort/swiftUI-slide-over-card.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		92BF5414261A8BA90055051E /* SlideOverCard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92BF5413261A8BA90055051E /* XCRemoteSwiftPackageReference "swiftUI-slide-over-card" */;
+			productName = SlideOverCard;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9246CAA32605285500F73610 /* Project object */;
 }
