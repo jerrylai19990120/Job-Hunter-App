@@ -7,20 +7,21 @@
 //
 
 import SwiftUI
+import SlideOverCard
 
 struct LocationFilter: View {
     
     var gr: GeometryProxy
     
-    @State var query = ""
+    @Binding var locationLimit: String
+    
+    @Binding var position: CardPosition
     
     var body: some View {
         VStack {
             HStack {
-                TextField("Enter location", text: self.$query, onCommit: {
-                    if self.query != "" {
-                        
-                    }
+                TextField("Enter location", text: self.$locationLimit, onCommit: {
+                    self.position = CardPosition.bottom
                 })
                 Image(systemName: "magnifyingglass")
                     .resizable()
@@ -36,7 +37,7 @@ struct LocationFilter: View {
 struct LocationFilter_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { gr in
-            LocationFilter(gr: gr)
+            LocationFilter(gr: gr, locationLimit: .constant(""), position: .constant(CardPosition.top))
         }
     }
 }

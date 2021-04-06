@@ -19,6 +19,10 @@ struct SearchView: View {
     
     @State var results: [Job] = [Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")]
     
+    //filters
+    @State var locationLimit = ""
+    @State var contract = ""
+    
     @State private var normal = CardPosition.bottom
     @State private var normalBg = BackgroundStyle.blur
     
@@ -38,7 +42,7 @@ struct SearchView: View {
                 
                 
                 VStack {
-                    SearchHeader(gr: gr, query: $query, didSearch: $didSearch, results: $results, normal: $normal, location: $location)
+                    SearchHeader(gr: gr, query: $query, didSearch: $didSearch, results: $results, normal: $normal, location: $location, locationLimit: $locationLimit, contract: $contract)
                         .offset(y: gr.size.height/3)
                         
                     Spacer()
@@ -46,11 +50,11 @@ struct SearchView: View {
             }
             
             SlideOverCard($normal, backgroundStyle: $normalBg) {
-                NormalFilter(gr: self.gr)
+                NormalFilter(gr: self.gr, contract: self.$contract, position: self.$normal)
             }
             
             SlideOverCard($location, backgroundStyle: $locationBg) {
-                LocationFilter(gr: self.gr)
+                LocationFilter(gr: self.gr, locationLimit: self.$locationLimit, position: self.$location)
             }
             
         }.animation(.default)

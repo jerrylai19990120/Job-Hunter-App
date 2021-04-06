@@ -20,8 +20,10 @@ class DataService {
     
     //let url = urlString.replacingOccurrences(of: " ", with: "%20")
     
-    func searchJobs(query: String, completion: @escaping (_ status: Bool)->()){
+    func searchJobs(query: String, location: String, contract: String, completion: @escaping (_ status: Bool)->()){
         
+        print(location)
+        print(contract)
         searchJobs = []
         
         let urlString = "https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=toronto&full_time=1&what=\(query)"

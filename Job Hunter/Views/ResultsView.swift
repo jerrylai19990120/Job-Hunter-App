@@ -38,7 +38,7 @@ struct ResultsView: View {
                     TextField("\(query)", text: $query, onCommit: {
                         
                         if self.query != "" {
-                            DataService.instance.searchJobs(query: self.query) { (success) in
+                            DataService.instance.searchJobs(query: self.query, location: "", contract: "") { (success) in
                                 if success {
                                     self.results = DataService.instance.searchJobs
                                     self.didSearch = true

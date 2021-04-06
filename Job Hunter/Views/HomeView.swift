@@ -20,6 +20,10 @@ struct HomeView: View {
     @State var didSearch = false
     
     @State var results: [Job] = [Job(title: "Loading", company: "Loading", desc: "Loading", url: "Loading", lat: "Loading", lng: "Loading", contract: "Loading", created: "Loading", location: "Loading")]
+    
+    //filters
+    @State var locationLimit = ""
+    @State var contract = ""
         
     @State private var position = CardPosition.bottom
     @State private var background = BackgroundStyle.blur
@@ -44,7 +48,7 @@ struct HomeView: View {
                     
                     //Header Stack
                     VStack(spacing: 0) {
-                        SearchHeader(gr: gr, query: self.$query, didSearch: self.$didSearch, results: self.$results, normal: self.$normal, location: self.$location)
+                        SearchHeader(gr: gr, query: self.$query, didSearch: self.$didSearch, results: self.$results, normal: self.$normal, location: self.$location, locationLimit: self.$locationLimit, contract: self.$contract)
                             .frame(height: gr.size.height*0.22)
                             
                         
@@ -87,11 +91,11 @@ struct HomeView: View {
             }
             
             SlideOverCard($normal, backgroundStyle: $normalBg) {
-                NormalFilter(gr: self.gr)
+                NormalFilter(gr: self.gr, contract: self.$contract, position: self.$normal)
             }
             
             SlideOverCard($location, backgroundStyle: $locationBg) {
-                LocationFilter(gr: self.gr)
+                LocationFilter(gr: self.gr, locationLimit: self.$locationLimit, position: self.$location)
             }
             
             
@@ -130,12 +134,16 @@ struct SearchHeader: View {
     
     @Binding var location: CardPosition
     
+    @Binding var locationLimit: String
+    
+    @Binding var contract: String
+    
     var body: some View {
         VStack{
             HStack {
                 TextField("Search Job", text: self.$query, onCommit: {
                     if self.query != "" {
-                        DataService.instance.searchJobs(query: self.query) { (success) in
+                        DataService.instance.searchJobs(query: self.query, location: self.locationLimit, contract: self.contract) { (success) in
                             if success {
                                 self.results = DataService.instance.searchJobs
                                 self.didSearch = true
@@ -167,7 +175,7 @@ struct SearchHeader: View {
                     .background(Color(red: 148/255, green: 101/255, blue: 251/255))
                     .cornerRadius(18)
                     .onTapGesture {
-                        self.normal = CardPosition.middle
+                        self.normal = CardPosition.top
                 }
                 
                 Spacer()
