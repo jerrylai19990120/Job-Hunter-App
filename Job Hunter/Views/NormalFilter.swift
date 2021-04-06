@@ -18,7 +18,7 @@ struct NormalFilter: View {
     @Binding var position: CardPosition
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        
             VStack {
                 Button(action: {
                     self.contract = "full_time"
@@ -27,8 +27,8 @@ struct NormalFilter: View {
                     Text("Full Time")
                         .font(.system(size: gr.size.width*0.046, weight: .regular, design: .default))
                         .padding()
+                    .frame(width: gr.size.width)
                 }.accentColor(.black)
-                .frame(width: gr.size.width)
                 
                 
                 Divider()
@@ -41,8 +41,9 @@ struct NormalFilter: View {
                     Text("Part Time")
                         .font(.system(size: gr.size.width*0.046, weight: .regular, design: .default))
                         .padding()
+                    .frame(width: gr.size.width)
                 }.accentColor(.black)
-                .frame(width: gr.size.width)
+                
                 
                 Divider()
                 
@@ -53,8 +54,9 @@ struct NormalFilter: View {
                     Text("Contract")
                         .font(.system(size: gr.size.width*0.046, weight: .regular, design: .default))
                         .padding()
+                    .frame(width: gr.size.width)
                 }.accentColor(.black)
-                .frame(width: gr.size.width)
+                
                 
                 Divider()
                 
@@ -65,11 +67,12 @@ struct NormalFilter: View {
                     Text("Permanent")
                         .font(.system(size: gr.size.width*0.046, weight: .regular, design: .default))
                         .padding()
+                    .frame(width: gr.size.width)
                 }.accentColor(.black)
-                .frame(width: gr.size.width)
+                
                                     
             }
-        }
+
     }
 }
 

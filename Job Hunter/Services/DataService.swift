@@ -18,15 +18,25 @@ class DataService {
     
     var searchJobs = [Job]()
     
-    //let url = urlString.replacingOccurrences(of: " ", with: "%20")
     
     func searchJobs(query: String, location: String, contract: String, completion: @escaping (_ status: Bool)->()){
         
-        print(location)
-        print(contract)
         searchJobs = []
         
-        let urlString = "https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=toronto&full_time=1&what=\(query)"
+        var urlString = "https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=toronto&full_time=1&what=\(query)"
+        
+        if contract != "" && location != "" {
+            urlString = "https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=\(location)&\(contract)=1&what=\(query)"
+        }
+        
+        if contract != "" {
+            urlString = "https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=toronto&\(contract)=1&what=\(query)"
+        }
+        
+        if location != "" {
+            urlString = "https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=\(location)&full_time=1&what=\(query)"
+        }
+        
         
         let url = urlString.replacingOccurrences(of: " ", with: "%20")
         
