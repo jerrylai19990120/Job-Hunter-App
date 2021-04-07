@@ -38,7 +38,7 @@ struct HomeView: View {
         
         ZStack {
             if didSearch {
-                ResultsView(gr: gr, query: self.$query, didSearch: $didSearch, results: self.$results)
+                ResultsView(gr: gr, query: self.$query, didSearch: $didSearch, results: self.$results, location: self.$locationLimit, contract: self.$contract)
             } else {
                 ZStack {
                     LinearGradient(gradient: Gradient(colors: [Color("primaryPurple"), Color("secondaryPurple")]), startPoint: .trailing, endPoint: .leading)
@@ -143,7 +143,7 @@ struct SearchHeader: View {
             HStack {
                 TextField("Search Job", text: self.$query, onCommit: {
                     if self.query != "" {
-                        DataService.instance.searchJobs(query: self.query, location: self.locationLimit, contract: self.contract) { (success) in
+                        DataService.instance.searchJobs(query: self.query, location: self.locationLimit, contract: self.contract, more: false) { (success) in
                             if success {
                                 self.results = DataService.instance.searchJobs
                                 self.didSearch = true

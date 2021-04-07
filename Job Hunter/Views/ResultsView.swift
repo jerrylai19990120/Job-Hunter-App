@@ -18,6 +18,10 @@ struct ResultsView: View {
     
     @Binding var results: [Job]
     
+    @Binding var location: String
+    
+    @Binding var contract: String
+    
     var body: some View {
         
         VStack {
@@ -38,7 +42,7 @@ struct ResultsView: View {
                     TextField("\(query)", text: $query, onCommit: {
                         
                         if self.query != "" {
-                            DataService.instance.searchJobs(query: self.query, location: "", contract: "") { (success) in
+                            DataService.instance.searchJobs(query: self.query, location: "", contract: "", more: false) { (success) in
                                 if success {
                                     self.results = DataService.instance.searchJobs
                                     self.didSearch = true
@@ -65,6 +69,21 @@ struct ResultsView: View {
                         
                     }
                     
+                    Button(action: {
+                        DataService.instance.searchJobs(query: self.query, location: self.location, contract: self.contract, more: true) { (success) in
+                            if success {
+                                self.results = DataService.instance.searchJobs
+                            }
+                        }
+                    }, label: {
+                        Text("Load More")
+                            .padding()
+                            .background(Color("secondaryPurple"))
+                            .cornerRadius(16)
+                            .font(.system(size: gr.size.width*0.04, weight: .medium, design: .default))
+                            .foregroundColor(.white)
+                    })
+                    
                 }.padding(.bottom, gr.size.height*0.1)
             }
         }.background(Color.white)//vstack
@@ -75,7 +94,7 @@ struct ResultsView: View {
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { gr in
-            ResultsView(gr: gr, query: .constant("software engineer"), didSearch: .constant(true), results: .constant([]))
+            ResultsView(gr: gr, query: .constant("software engineer"), didSearch: .constant(true), results: .constant([]), location: .constant(""), contract: .constant(""))
         }
     }
 }

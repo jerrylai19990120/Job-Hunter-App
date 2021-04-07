@@ -34,7 +34,7 @@ struct SearchView: View {
         ZStack{
             
             if didSearch {
-                ResultsView(gr: gr, query: self.$query, didSearch: self.$didSearch, results: self.$results)
+                ResultsView(gr: gr, query: self.$query, didSearch: self.$didSearch, results: self.$results, location: self.$locationLimit, contract: self.$contract)
             } else {
                 Rectangle()
                     .fill(Color(red: 244/255 , green: 245/255, blue: 249/255))
