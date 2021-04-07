@@ -63,7 +63,7 @@ struct HomeView: View {
                                 
                                 ForEach(self.feature, id:\.self){
                                     job in
-                                    NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr))) {
+                                    NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr, job: job))) {
                                         JobItem(gr: self.gr, job: job, jobs: Binding.constant([]))
                                             .padding(.bottom)
                                     }.accentColor(.black)
@@ -206,12 +206,25 @@ struct ShareButton: View {
     
     var gr: GeometryProxy
     
+    var job: Job
+    
     var body: some View {
-        Image(systemName: "square.and.arrow.up")
-            .resizable()
-            .frame(width: gr.size.width*0.05, height: gr.size.width*0.06)
-            .foregroundColor(.white)
-            .font(Font.title.weight(.bold))
-            
+        
+        Button(action: {
+            self.shareJob()
+        }) {
+            Image(systemName: "square.and.arrow.up")
+                .resizable()
+                .frame(width: gr.size.width*0.05, height: gr.size.width*0.06)
+                .foregroundColor(.white)
+                .font(Font.title.weight(.bold))
+        }
+        
+    }
+    
+    func shareJob(){
+        guard let data = URL(string: job.url) else {return}
+        let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
 }

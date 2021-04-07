@@ -24,7 +24,7 @@ struct JobDetailView: View {
             
             ZStack {
                 VStack {
-                    Image("bg")
+                    Image(String(describing: Int.random(in: 1..<7)))
                         .resizable()
                         .renderingMode(.original)
                         .aspectRatio(contentMode: .fill)

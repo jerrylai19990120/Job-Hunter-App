@@ -34,7 +34,7 @@ struct BookmarkView: View {
                 VStack {
                     ForEach(self.bookMarkedJobs, id: \.self){
                         job in
-                        NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr))) {
+                        NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr, job: job))) {
                             JobItem(gr: self.gr, job: job,isBookMarked: true, jobs: self.$bookMarkedJobs)
                                 .padding(.bottom)
                         }.accentColor(.black)

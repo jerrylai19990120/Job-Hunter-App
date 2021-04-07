@@ -59,7 +59,7 @@ struct ResultsView: View {
                 VStack {
                     ForEach(self.results, id: \.self){
                         job in
-                        NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr))) {
+                        NavigationLink(destination: JobDetailView(gr: self.gr, job: job).navigationBarItems(trailing: ShareButton(gr: self.gr, job: job))) {
                             ResultItem(gr: self.gr, job: job)
                         }.accentColor(.black)
                         
