@@ -22,6 +22,8 @@ struct ResultsView: View {
     
     @Binding var contract: String
     
+    @State var loadCount = 1
+    
     var body: some View {
         
         VStack {
@@ -42,7 +44,7 @@ struct ResultsView: View {
                     TextField("\(query)", text: $query, onCommit: {
                         
                         if self.query != "" {
-                            DataService.instance.searchJobs(query: self.query, location: "", contract: "", more: false) { (success) in
+                            DataService.instance.searchJobs(query: self.query, location: "", contract: "", more: false, loadCount: 1) { (success) in
                                 if success {
                                     self.results = DataService.instance.searchJobs
                                     self.didSearch = true
@@ -70,7 +72,8 @@ struct ResultsView: View {
                     }
                     
                     Button(action: {
-                        DataService.instance.searchJobs(query: self.query, location: self.location, contract: self.contract, more: true) { (success) in
+                        self.loadCount += 1
+                        DataService.instance.searchJobs(query: self.query, location: self.location, contract: self.contract, more: true, loadCount: self.loadCount) { (success) in
                             if success {
                                 self.results = DataService.instance.searchJobs
                             }
