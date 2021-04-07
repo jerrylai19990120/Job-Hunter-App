@@ -27,13 +27,9 @@ class DataService {
         
         if contract != "" && location != "" {
             urlString = "https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=\(location)&\(contract)=1&what=\(query)"
-        }
-        
-        if contract != "" {
+        } else if contract != "" {
             urlString = "https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=toronto&\(contract)=1&what=\(query)"
-        }
-        
-        if location != "" {
+        } else if location != "" {
             urlString = "https://api.adzuna.com/v1/api/jobs/ca/search/1?app_id=\(APP_ID)&app_key=\(APP_KEY)&results_per_page=10&where=\(location)&full_time=1&what=\(query)"
         }
         
